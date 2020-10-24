@@ -1600,7 +1600,7 @@
     <string name="can21">کاٻي ڏنئوري جي گهير جي  وچ واري حصي جي ماپ (سينٽي ميٽر ۾) ٽيون دفعو</string>
 
 
-    <string name="elm_title1">(سيڪشن ايم؛ پاڻي، نيڪال ۽ صفائي جي صورتحال جو مشاھدو ڪرڻ  (پيئڻ جو پاڻي</string>
+    <string name="elm_title1"> سيڪشن ايم؛\n نيڪال پاڻي، صفائي ۽ پيئڻ جي پاڻي جي صورتحال جو مشاھدو ڪرڻ </string>
     <string name="elm01">پاڻي جمع ڪرڻ جو برتن/ ٿانو ڍڪيل آھي؟</string>
     <string name="elm0101">ھا</string>
     <string name="elm0102">نه</string>
@@ -1611,7 +1611,7 @@
     <string name="elm03">پاڻي جمع ڪرڻ جي برتن/ ٿانو ۾پاڻي موجود آهي؟</string>
     <string name="elm0301">ھا</string>
     <string name="elm0302">نه</string>
-    <string name="elmm_title1">رڌل/ پچيل کاڌو پيتو</string>
+    <string name="elmm_title1"> رڌل يا پچيل کاڌو پيتو </string>
     <string name="elmm04">گھر ۾ استعمال ٿيندڙصاف برتن/ ٿانو ڍڪيل آھن؟  (برتن/ ٿانو صاف ٿيل ۽ اونڌا رکيل آھن ته  اھي ڍڪيل تصور ڪيا ويندا) </string>
     <string name="elmm0401">ھا</string>
     <string name="elmm0402">نه</string>
@@ -1622,7 +1622,7 @@
     <string name="elmm0601">ھا</string>
     <string name="elmm0602">نه</string>
     <string name="elmm0603">پڪيل کاڌو موجود نه آھي</string>
-    <string name="elm_title2">گهريلوصفائي</string>
+    <string name="elm_title2"> گهريلو صفائي </string>
     <string name="elmm07">گهر جي ٻاهران ڪچرو آهي؟  (چار ديواري جي اندر ۽ گهر جي ٻاهران)</string>
     <string name="elmm0701">ھا</string>
     <string name="elmm0702">نه</string>

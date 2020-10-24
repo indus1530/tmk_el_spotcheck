@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="false"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
@@ -29,43 +29,44 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
+        <activity android:name=".ui.sections.SectionMActivity"></activity>
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF06Activity"
+            android:name=".ui.sections.SectionF06Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF05Activity"
+            android:name=".ui.sections.SectionF05Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF04Activity"
+            android:name=".ui.sections.SectionF04Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF03Activity"
+            android:name=".ui.sections.SectionF03Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF02Activity"
+            android:name=".ui.sections.SectionF02Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FormsReportCluster"
+            android:name=".ui.list_activity.FormsReportCluster"
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FormsReportDate"
+            android:name=".ui.list_activity.FormsReportDate"
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.PendingFormsActivity"
+            android:name=".ui.list_activity.PendingFormsActivity"
             android:label="Unfinished Forms"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.SplashscreenActivity"
+            android:name=".ui.other.SplashscreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -75,97 +76,97 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.LoginActivity"
+            android:name=".ui.other.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.MainActivity"
+            android:name=".ui.other.MainActivity"
             android:theme="@style/AppThemeEnglish" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionBActivity"
+            android:name=".ui.sections.SectionBActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionCActivity"
+            android:name=".ui.sections.SectionCActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionE01Activity"
+            android:name=".ui.sections.SectionE01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionE02Activity"
+            android:name=".ui.sections.SectionE02Activity"
             android:label="@string/sectione_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF01Activity"
+            android:name=".ui.sections.SectionF01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionG01Activity"
+            android:name=".ui.sections.SectionG01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionG02Activity"
+            android:name=".ui.sections.SectionG02Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionH01Activity"
+            android:name=".ui.sections.SectionH01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionH02Activity"
+            android:name=".ui.sections.SectionH02Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionI01Activity"
+            android:name=".ui.sections.SectionI01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionI02Activity"
+            android:name=".ui.sections.SectionI02Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionJ01Activity"
+            android:name=".ui.sections.SectionJ01Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionJ02Activity"
+            android:name=".ui.sections.SectionJ02Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionKActivity"
+            android:name=".ui.sections.SectionKActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionLActivity"
+            android:name=".ui.sections.SectionLActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionNActivity"
+            android:name=".ui.sections.SectionNActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.EndingActivity"
+            android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.core.AndroidDatabaseManager"
-            android:parentActivityName="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.MainActivity"
+            android:name=".core.AndroidDatabaseManager"
+            android:parentActivityName=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.SyncActivity"
-            android:parentActivityName="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.MainActivity"
+            android:name=".ui.other.SyncActivity"
+            android:parentActivityName=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish" />
 
-        <service android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.utils.DownloadFileService" />
+        <service android:name=".utils.DownloadFileService" />
 
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionDActivity"
-            android:parentActivityName="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FamilyMembersListActivity"
+            android:name=".ui.sections.SectionDActivity"
+            android:parentActivityName=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu">
             <meta-data
@@ -173,7 +174,7 @@
                 android:value="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FamilyMembersListActivity" />
         </activity>
         <activity
-            android:name="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FamilyMembersListActivity"
+            android:name=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
     </application>
