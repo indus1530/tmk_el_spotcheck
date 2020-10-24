@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.LoginActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_bg_color"
+        android:fitsSystemWindows="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Login progress -->
+        <ProgressBar
+            android:id="@+id/loginProgress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/agakhan"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="12dp"
+                    android:text="SIGN IN"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        style="@style/CardView"
+                        android:layout_width="450dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:elevation="14dp"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#f7f7f7"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="20dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Username"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/black_overlay"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="?attr/actionBarSize"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <EditText
+                                        android:id="@+id/username"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_horizontal"
+
+                                        android:background="@color/white_overlay"
+                                        android:drawableStart="@drawable/ic_username"
+                                        android:drawablePadding="8dp"
+                                        android:elevation="1dp"
+                                        android:gravity="center_vertical"
+                                        android:hint="Username"
+                                        android:imeOptions="actionUnspecified"
+                                        android:inputType="textEmailAddress"
+                                        android:maxLines="1"
+                                        android:minWidth="280dp"
+                                        android:paddingStart="12dp"
+                                        android:paddingEnd="12dp"
+                                        android:radius="2dp"
+                                        android:singleLine="true"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="20sp" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Password"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                    android:textColor="@color/black_overlay"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="?attr/actionBarSize"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <EditText
+                                        android:id="@+id/password"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_weight="8"
+                                        android:background="@color/white_overlay"
+                                        android:drawableStart="@drawable/ic_lock_close"
+                                        android:drawablePadding="8dp"
+                                        android:elevation="1dp"
+                                        android:hint="Password"
+                                        android:imeActionLabel="Password"
+                                        android:imeOptions="actionUnspecified"
+                                        android:inputType="textPassword"
+                                        android:maxLines="1"
+                                        android:minWidth="280dp"
+                                        android:paddingStart="12dp"
+                                        android:paddingEnd="12dp"
+                                        android:radius="2dp"
+                                        android:singleLine="true"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="20sp" />
+
+                                    <ImageButton
+                                        android:id="@+id/showPassword"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2"
+                                        android:background="@drawable/et_style"
+                                        android:onClick="onShowPasswordClick"
+                                        android:src="@drawable/ic_red_eye"
+                                        android:textSize="20sp" />
+
+                                </LinearLayout>
+
+
+                                <!--Province-->
+                                <LinearLayout
+                                    android:id="@+id/spinners"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="24dp"
+                                    android:layout_marginEnd="20dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                                    <androidx.cardview.widget.CardView
+                                        style="@style/cardView"
+                                        android:layout_marginTop="10dp">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layoutDirection="ltr"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:background="@color/colorPrimaryLight"
+                                                android:gravity="center"
+                                                android:text="Select UC"
+                                                android:textAlignment="center"
+                                                android:textColor="@color/white"
+                                                android:textStyle="bold" />
+
+                                            <Spinner
+                                                android:id="@+id/spUCs"
+                                                style="@null"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_margin="10dp"
+                                                android:layout_weight="2" />
+
+                                        </LinearLayout>
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </LinearLayout>
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnSignin"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="16dp"
+                                    android:background="@drawable/outline_btn"
+                                    android:text="Login"
+                                    android:textColor="@color/white"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <Button
+                        android:id="@+id/syncData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:background="@color/black_overlay"
+                        android:drawableStart="@drawable/ic_download"
+                        android:drawablePadding="12dp"
+                        android:onClick="onSyncDataClick"
+                        android:padding="12dp"
+                        android:text="Download Data"
+                        android:textColor="@color/white_overlay" />
+
+                    <TextView
+                        android:id="@+id/txtinstalldate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="24dp"
+
+                        android:gravity="center"
+                        android:shadowColor="#d6d6d6"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Ver."
+                        android:textColor="#7f7f7f"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
