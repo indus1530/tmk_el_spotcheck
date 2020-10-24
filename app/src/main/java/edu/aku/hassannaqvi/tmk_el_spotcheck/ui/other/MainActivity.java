@@ -45,17 +45,6 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.models.Form;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.models.VersionApp;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FormsReportDate;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionBActivity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionCActivity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionDActivity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionE01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionF01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionG01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionH01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionI01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionJ01Activity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionKActivity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionLActivity;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections.SectionNActivity;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AndroidUtilityKt;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AppUtilsKt;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable;
@@ -324,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         switch (v.getId()) {
             case R.id.formA:
                 oF = new Intent(this, SectionBActivity.class).putExtra(VILLAGES_DATA, village);
-                break;
+                break;/*
             case R.id.formC:
                 oF = new Intent(this, SectionCActivity.class);
                 break;
@@ -357,7 +346,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
                 break;
             case R.id.formN:
                 oF = new Intent(this, SectionNActivity.class);
-                break;
+                break;*/
             case R.id.databaseBtn:
                 oF = new Intent(this, AndroidDatabaseManager.class);
                 break;

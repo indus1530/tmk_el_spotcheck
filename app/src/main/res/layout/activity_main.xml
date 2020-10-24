@@ -226,7 +226,7 @@
                         android:focusable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:onClick="@{callback::openSpecificActivity}"
-                        app:cardCornerRadius="@dimen/cardview_default_radius">
+                        app:cardCornerRadius="20dp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -241,7 +241,7 @@
                                 android:layout_gravity="center_horizontal"
                                 android:drawablePadding="12dp"
                                 android:text="Open Form"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                                 android:textColor="@color/white"
                                 app:drawableStartCompat="@drawable/open_form" />
 
@@ -254,7 +254,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/formC"
