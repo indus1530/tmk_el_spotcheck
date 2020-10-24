@@ -12,9 +12,9 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.VillageContract.VillageTab
 
 public final class CreateTable {
 
-    public static final String DATABASE_NAME = "uenTMKel2020.db";
-    public static final String DB_NAME = "uenTMKel2020_copy.db";
-    public static final String PROJECT_NAME = "uenTMKel2020";
+    public static final String DATABASE_NAME = "TmkElSpotcheck.db";
+    public static final String DB_NAME = "TmkElSpotcheck_copy.db";
+    public static final String PROJECT_NAME = "TmkElSpotcheck";
     public static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "

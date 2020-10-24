@@ -16,7 +16,7 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.Mwra_ChildrenContract;
 
 public class MWRA_CHILD extends LiveData<MWRA_CHILD> implements Serializable {
 
-    private final String projectName = "UenTmkEl2020";
+    private final String projectName = "TmkElSpotcheck";
     private String _ID = "";
     private String _UID = "";
     private String UUID = "";
