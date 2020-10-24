@@ -2,20 +2,27 @@ package edu.aku.hassannaqvi.tmk_el_spotcheck.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.tmk_el_spotcheck.R;
+import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract;
+import edu.aku.hassannaqvi.tmk_el_spotcheck.core.DatabaseHelper;
+import edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.databinding.ActivitySectionMBinding;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.MainActivity;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AppUtilsKt;
+
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp.form;
 
 public class SectionMActivity extends AppCompatActivity {
 
@@ -31,13 +38,16 @@ public class SectionMActivity extends AppCompatActivity {
 
     private void setupSkip() {
 
-        /*bi.can4.setOnCheckedChangeListener((group, checkedId) -> {
-            Clear.clearAllFields(bi.fldGrpCVcan5);
-            bi.fldGrpCVcan5.setVisibility(View.VISIBLE);
-            if (checkedId == bi.can402.getId()) {
-                bi.fldGrpCVcan5.setVisibility(View.GONE);
+        bi.elm01.setOnCheckedChangeListener((group, checkedId) -> {
+            Clear.clearAllFields(bi.fldGrpCVelm02);
+            Clear.clearAllFields(bi.fldGrpCVelm03);
+            bi.fldGrpCVelm02.setVisibility(View.VISIBLE);
+            bi.fldGrpCVelm03.setVisibility(View.VISIBLE);
+            if (checkedId == bi.elm0103.getId()) {
+                bi.fldGrpCVelm02.setVisibility(View.GONE);
+                bi.fldGrpCVelm03.setVisibility(View.GONE);
             }
-        });*/
+        });
 
     }
 
@@ -59,18 +69,9 @@ public class SectionMActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addForm(form);
-        form.set_ID(String.valueOf(updcount));
-        if (updcount > 0) {
-            form.set_UID(form.getDeviceID() + form.get_ID());
-            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, form.get_UID());
-            return true;
-        } else {
-            Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
-            return false;
-        }*/
-        return true;
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.form.getsC());
+        return updcount == 1;
     }
 
 
@@ -128,6 +129,8 @@ public class SectionMActivity extends AppCompatActivity {
         json.put("elmm12", bi.elmm1201.isChecked() ? "1"
                 : bi.elmm1202.isChecked() ? "2"
                 : "-1");
+
+        form.setsC(json.toString());
 
 
     }
