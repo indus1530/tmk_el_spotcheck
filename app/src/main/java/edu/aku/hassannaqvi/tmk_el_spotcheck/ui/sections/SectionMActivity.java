@@ -19,7 +19,7 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.core.DatabaseHelper;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.databinding.ActivitySectionMBinding;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.MainActivity;
+import edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AppUtilsKt;
 
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp.form;
@@ -61,7 +61,7 @@ public class SectionMActivity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, MainActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         } else {
             Toast.makeText(this, "Sorry. You can't go further.\n Please contact IT Team (Failed to update DB)", Toast.LENGTH_SHORT).show();
         }

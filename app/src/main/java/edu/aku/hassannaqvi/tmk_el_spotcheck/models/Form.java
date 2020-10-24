@@ -17,7 +17,7 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract.FormsTable;
 
 public class Form extends LiveData<Form> {
 
-    private final String projectName = "UenTmkEl2020";
+    private final String projectName = "TmkElSpotcheck";
     private String _ID = "";
     private String _UID = "";
     private String username;

@@ -83,7 +83,7 @@ public class SectionBActivity extends AppCompatActivity {
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionCActivity.class));
+                startActivity(new Intent(this, SectionMActivity.class));
             }
         } catch (JSONException e) {
             e.printStackTrace();
