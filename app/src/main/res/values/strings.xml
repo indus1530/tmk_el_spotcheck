@@ -1599,6 +1599,51 @@
     <string name="can2002">نه </string>
     <string name="can21">کاٻي ڏنئوري جي گهير جي  وچ واري حصي جي ماپ (سينٽي ميٽر ۾) ٽيون دفعو</string>
 
+
+    <string name="elm_title1">(سيڪشن ايم؛ پاڻي، نيڪال ۽ صفائي جي صورتحال جو مشاھدو ڪرڻ  (پيئڻ جو پاڻي</string>
+    <string name="elm01">پاڻي جمع ڪرڻ جو برتن/ ٿانو ڍڪيل آھي؟</string>
+    <string name="elm0101">ھا</string>
+    <string name="elm0102">نه</string>
+    <string name="elm0103">پاڻي جمع نه  ڪيو ويندو آھي </string>
+    <string name="elm02">پاڻي جمع ڪرڻ جو برتن/ ٿانو ٻاهران صاف آهي؟</string>
+    <string name="elm0201">ھا</string>
+    <string name="elm0202">نه</string>
+    <string name="elm03">پاڻي جمع ڪرڻ جي برتن/ ٿانو ۾پاڻي موجود آهي؟</string>
+    <string name="elm0301">ھا</string>
+    <string name="elm0302">نه</string>
+    <string name="elmm_title1">رڌل/ پچيل کاڌو پيتو</string>
+    <string name="elmm04">گھر ۾ استعمال ٿيندڙصاف برتن/ ٿانو ڍڪيل آھن؟  (برتن/ ٿانو صاف ٿيل ۽ اونڌا رکيل آھن ته  اھي ڍڪيل تصور ڪيا ويندا) </string>
+    <string name="elmm0401">ھا</string>
+    <string name="elmm0402">نه</string>
+    <string name="elmm05">صاف برتن/ ٿانو ڪنهن مٿاھين يا صاف جڳھ تي رکيل آهن؟</string>
+    <string name="elmm0501">ھا</string>
+    <string name="elmm0502">نه</string>
+    <string name="elmm06">رڌل کاڌو ڍڪيل آهي؟</string>
+    <string name="elmm0601">ھا</string>
+    <string name="elmm0602">نه</string>
+    <string name="elmm0603">پڪيل کاڌو موجود نه آھي</string>
+    <string name="elm_title2">گهريلوصفائي</string>
+    <string name="elmm07">گهر جي ٻاهران ڪچرو آهي؟  (چار ديواري جي اندر ۽ گهر جي ٻاهران)</string>
+    <string name="elmm0701">ھا</string>
+    <string name="elmm0702">نه</string>
+    <string name="elmm08">گھر جي اندر (انسانن جي رھائشي حصي ۾) ڪچرو آهي؟</string>
+    <string name="elmm0801">ھا</string>
+    <string name="elmm0802">نه</string>
+    <string name="elmm09">چوپايو مال گهر جي اندر (انسانن جي رھائشي حصي ۾) ٻڌل آھي؟</string>
+    <string name="elmm0901">ھا</string>
+    <string name="elmm0902">نه</string>
+    <string name="elmm10">گھر ۾ ميرا ڪپڙا ڪيئن رکيل آھن؟</string>
+    <string name="elmm1001">ھا مخصوص جاءِ تي جمع آھن </string>
+    <string name="elmm1002">نه ھر جاءِ تي پکڙيل آھن</string>
+    <string name="elmm1003">ڪپڙا جمع نه  ٿيندا آھن (روز ڌوتا ويندا آھن) </string>
+    <string name="elmm11">گھر ۾ مکين جو تعداد ڪيترو آھي؟</string>
+    <string name="elmm1101">گهڻي تعداد ۾ آهن</string>
+    <string name="elmm1102">گهٽ تعداد ۾ آهن</string>
+    <string name="elmm12">گھر جي (رھائشي حصي جي ٻاھران اڱڻ، ورانڊي ۾) چوڌاري پاڻي بيٺل آھي؟</string>
+    <string name="elmm1201">ھا</string>
+    <string name="elmm1202">نه</string>
+
+
     <string name='Q_arih_title1'>arih_title1</string>
     <string name='Q_arih_title2'>arih_title2</string>
     <string name='Q_arih1'>arih1</string>
@@ -1988,5 +2033,21 @@
     <string name='Q_wsk7'>wsk7</string>
     <string name='Q_wsk8'>wsk8</string>
     <string name='Q_wsk9'>wsk9</string>
+
+    <string name='Q_elm_title1'>elm_title1</string>
+    <string name='Q_elm_title2'>elm_title2</string>
+    <string name='Q_elm01'>elm01</string>
+    <string name='Q_elm02'>elm02</string>
+    <string name='Q_elm03'>elm03</string>
+    <string name='Q_elmm_title1'>elmm_title1</string>
+    <string name='Q_elmm04'>elmm04</string>
+    <string name='Q_elmm05'>elmm05</string>
+    <string name='Q_elmm06'>elmm06</string>
+    <string name='Q_elmm07'>elmm07</string>
+    <string name='Q_elmm08'>elmm08</string>
+    <string name='Q_elmm09'>elmm09</string>
+    <string name='Q_elmm10'>elmm10</string>
+    <string name='Q_elmm11'>elmm11</string>
+    <string name='Q_elmm12'>elmm12</string>
 
 </resources>

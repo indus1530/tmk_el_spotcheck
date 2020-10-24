@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <string name="app_name"> TMK EL Spotcheck </string>
 
     <string name="sectionb_mainheading">SECTION B: HOUSEHOLD IDENTIFICATION AND DEMOGRAPHIC INFORMATION</string>
@@ -1602,6 +1601,50 @@ Is this person under age 15? What sex?</string>
     <string name="can21">Left middle upper arm circumference measurement #3 </string>
 
 
+    <string name="elm_title1">SECTION M: WASH (Spot Check) Drinking Water</string>
+    <string name="elm01">Interior water storage container is covered?</string>
+    <string name="elm0101">Yes</string>
+    <string name="elm0102">No</string>
+    <string name="elm0103">Water is not being stired</string>
+    <string name="elm02">Exterior water storage container is cleaned?</string>
+    <string name="elm0201">Yes</string>
+    <string name="elm0202">No</string>
+    <string name="elm03">Water present in water storage container?</string>
+    <string name="elm0301">Yes</string>
+    <string name="elm0302">No</string>
+    <string name="elmm_title1">Cooked Food</string>
+    <string name="elmm04">Clean dishes are covered? (If the dishes are clean and kept upside down, they will be considered covered) </string>
+    <string name="elmm0401">Yes</string>
+    <string name="elmm0402">No</string>
+    <string name="elmm05">Clean dishes are kept high?</string>
+    <string name="elmm0501">Yes</string>
+    <string name="elmm0502">No</string>
+    <string name="elmm06">All cooked food is covered?</string>
+    <string name="elmm0601">Yes</string>
+    <string name="elmm0602">No</string>
+    <string name="elmm0603">Cooked food is not available</string>
+    <string name="elm_title2">Domestic hygiene</string>
+    <string name="elmm07">Is there any trash outside home? Inside the compound &amp; outside the residential area)  </string>
+    <string name="elmm0701">Yes</string>
+    <string name="elmm0702">No</string>
+    <string name="elmm08">Is there any trash inside home? (Residential area) </string>
+    <string name="elmm0801">Yes</string>
+    <string name="elmm0802">No</string>
+    <string name="elmm09">Is there any unrestrained animal in patio house (Inside the Residential area) </string>
+    <string name="elmm0901">Yes</string>
+    <string name="elmm0902">No</string>
+    <string name="elmm10">How the dirty cloths are kept</string>
+    <string name="elmm1001">Accumulated in a seprate place</string>
+    <string name="elmm1002">Spread everywhere</string>
+    <string name="elmm1003">Cloths are being washed on daily basis</string>
+    <string name="elmm11">Is there any Insignificant number of flies in house</string>
+    <string name="elmm1101">Yes in large number</string>
+    <string name="elmm1102">No in small number</string>
+    <string name="elmm12">Is there any standing water in patio or around house? (Inside the compound, outside the residential area) </string>
+    <string name="elmm1201">Yes</string>
+    <string name="elmm1202">No</string>
+
+
     <string name='Q_arih_title1'>arih_title1</string>
     <string name='Q_arih_title2'>arih_title2</string>
     <string name='Q_arih1'>arih1</string>
@@ -1991,5 +2034,21 @@ Is this person under age 15? What sex?</string>
     <string name='Q_wsk7'>wsk7</string>
     <string name='Q_wsk8'>wsk8</string>
     <string name='Q_wsk9'>wsk9</string>
+
+    <string name='Q_elm_title1'>elm_title1</string>
+    <string name='Q_elm_title2'>elm_title2</string>
+    <string name='Q_elm01'>elm01</string>
+    <string name='Q_elm02'>elm02</string>
+    <string name='Q_elm03'>elm03</string>
+    <string name='Q_elmm_title1'>elmm_title1</string>
+    <string name='Q_elmm04'>elmm04</string>
+    <string name='Q_elmm05'>elmm05</string>
+    <string name='Q_elmm06'>elmm06</string>
+    <string name='Q_elmm07'>elmm07</string>
+    <string name='Q_elmm08'>elmm08</string>
+    <string name='Q_elmm09'>elmm09</string>
+    <string name='Q_elmm10'>elmm10</string>
+    <string name='Q_elmm11'>elmm11</string>
+    <string name='Q_elmm12'>elmm12</string>
 
 </resources>
