@@ -142,7 +142,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     "updateSyncedForms",
                     Form.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    FormsContract.FormsTable.TABLE_NAME + "SP",
+                    FormsContract.FormsTable.TABLE_NAME + "_SP",
                     db.getUnsyncedForms(), 0, syncListAdapter, uploadlist
             ).execute();
 

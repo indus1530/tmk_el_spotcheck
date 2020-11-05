@@ -70,7 +70,7 @@ public class SectionMActivity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.form.getsC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, MainApp.form.getsD());
         return updcount == 1;
     }
 
@@ -130,7 +130,7 @@ public class SectionMActivity extends AppCompatActivity {
                 : bi.elmm1202.isChecked() ? "2"
                 : "-1");
 
-        form.setsC(json.toString());
+        form.setsD(json.toString());
 
 
     }
