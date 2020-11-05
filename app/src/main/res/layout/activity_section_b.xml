@@ -518,6 +518,13 @@
                 android:id="@+id/fldGrpCVelb11"
                 style="@style/cardView">
 
+                <TextView
+                    android:id="@+id/headname"
+                    style="@style/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ANBCD" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

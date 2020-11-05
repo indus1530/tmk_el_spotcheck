@@ -32,31 +32,6 @@
 
 
         <activity
-            android:name=".ui.sections.SectionF06Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionF05Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionF04Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionF03Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionF02Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
             android:name=".ui.list_activity.FormsReportCluster"
             android:label="Forms Report"
             android:screenOrientation="portrait"
@@ -102,83 +77,7 @@
             android:theme="@style/AppThemeUrdu" />
 
         <activity
-            android:name=".ui.sections.SectionCActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionE01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionE02Activity"
-            android:label="@string/sectione_mainheading"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionF01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionG01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionG02Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionH01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionH02Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionI01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionI02Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionJ01Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionJ02Activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionKActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionLActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
             android:name=".ui.sections.SectionMActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu" />
-
-        <activity
-            android:name=".ui.sections.SectionNActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeUrdu" />
 
@@ -201,15 +100,6 @@
 
         <service android:name=".utils.DownloadFileService" />
 
-        <activity
-            android:name=".ui.sections.SectionDActivity"
-            android:parentActivityName=".ui.list_activity.FamilyMembersListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeUrdu">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.aku.hassannaqvi.tmk_el_spotcheck.ui.list_activity.FamilyMembersListActivity" />
-        </activity>
         <activity
             android:name=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait"

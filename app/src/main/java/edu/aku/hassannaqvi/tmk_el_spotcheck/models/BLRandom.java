@@ -22,11 +22,13 @@ public class BLRandom {
     private String extension; // Extension
     private String hh;
     private String hhhead;
-    private String randomDT;
-    private String contact;
-    private String selStructure;
+    private String sysDT;
+    private String randDT;
+    private String selUC;
     private String sno;
-    private String tabno;
+    private String villageName;
+
+    //Not saving in DB
     private String rndType;
     private String assignHH;
 
@@ -41,29 +43,29 @@ public class BLRandom {
         this.ebCode = ebcode;
     }
 
-    public String getTabno() {
-        return tabno;
+    public String getVillageName() {
+        return villageName;
     }
 
-    public void setTabno(String tabno) {
-        this.tabno = tabno;
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
     }
 
     public BLRandom Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getString(BLRandomTable.COLUMN_ID);
         this.LUID = jsonObject.getString(BLRandomTable.COLUMN_LUID);
-        this.pCode = jsonObject.getString(BLRandomTable.COLUMN_P_CODE);
-        this.ebCode = jsonObject.getString(BLRandomTable.COLUMN_EB_CODE);
+        this.pCode = jsonObject.getString(BLRandomTable.COLUMN_CLUSTER_CODE);
+        this.ebCode = jsonObject.getString(BLRandomTable.COLUMN_VILLAGE_CODE);
         this.structure = jsonObject.getString(BLRandomTable.COLUMN_STRUCTURE_NO);
-        this.structure = String.format(Locale.getDefault(), "%04d", Integer.valueOf(this.structure));
+        this.structure = String.format(Locale.ENGLISH, "%04d", Integer.valueOf(this.structure));
         this.extension = jsonObject.getString(BLRandomTable.COLUMN_FAMILY_EXT_CODE);
-        this.extension = String.format(Locale.getDefault(), "%03d", Integer.valueOf(this.extension));
-        this.tabno = jsonObject.getString(BLRandomTable.COLUMN_TAB_NO);
-        this.hh = tabno + "-" + structure + "-" + extension;
-        this.randomDT = jsonObject.getString(BLRandomTable.COLUMN_RANDOMDT);
+        this.extension = String.format(Locale.ENGLISH, "%03d", Integer.valueOf(this.extension));
+        this.villageName = jsonObject.getString(BLRandomTable.COLUMN_VILLAGE_NAME);
+        this.hh = structure + "-" + extension;
+        this.sysDT = jsonObject.getString(BLRandomTable.COLUMN_SYSDT);
         this.hhhead = jsonObject.getString(BLRandomTable.COLUMN_HH_HEAD);
-        this.contact = jsonObject.getString(BLRandomTable.COLUMN_CONTACT);
-        this.selStructure = jsonObject.getString(BLRandomTable.COLUMN_HH_SELECTED_STRUCT);
+        this.randDT = jsonObject.getString(BLRandomTable.COLUMN_RANDDT);
+        this.selUC = jsonObject.getString(BLRandomTable.COLUMN_HH_SELECTED_UC);
         this.sno = jsonObject.getString(BLRandomTable.COLUMN_SNO_HH);
         return this;
     }
@@ -71,15 +73,15 @@ public class BLRandom {
     public BLRandom hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_ID));
         this.LUID = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_LUID));
-        this.pCode = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_P_CODE));
-        this.ebCode = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_EB_CODE));
+        this.pCode = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_CLUSTER_CODE));
+        this.ebCode = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_VILLAGE_CODE));
         this.structure = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_STRUCTURE_NO));
         this.extension = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_FAMILY_EXT_CODE));
         this.hh = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_HH));
-        this.randomDT = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_RANDOMDT));
+        this.sysDT = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_SYSDT));
         this.hhhead = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_HH_HEAD));
-        this.contact = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_CONTACT));
-        this.selStructure = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_HH_SELECTED_STRUCT));
+        this.randDT = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_RANDDT));
+        this.selUC = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_HH_SELECTED_UC));
         this.sno = cursor.getString(cursor.getColumnIndex(BLRandomTable.COLUMN_SNO_HH));
         return this;
     }
@@ -132,12 +134,12 @@ public class BLRandom {
         this.hh = hh;
     }
 
-    public String getRandomDT() {
-        return randomDT;
+    public String getSysDT() {
+        return sysDT;
     }
 
-    public void setRandomDT(String randomDT) {
-        this.randomDT = randomDT;
+    public void setSysDT(String sysDT) {
+        this.sysDT = sysDT;
     }
 
     public String getHhhead() {
@@ -148,20 +150,20 @@ public class BLRandom {
         this.hhhead = hhhead;
     }
 
-    public String getContact() {
-        return contact;
+    public String getRandDT() {
+        return randDT;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setRandDT(String randDT) {
+        this.randDT = randDT;
     }
 
-    public String getSelStructure() {
-        return selStructure;
+    public String getSelUC() {
+        return selUC;
     }
 
-    public void setSelStructure(String selStructure) {
-        this.selStructure = selStructure;
+    public void setSelUC(String selUC) {
+        this.selUC = selUC;
     }
 
     public String getAssignHH() {

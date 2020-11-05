@@ -19,11 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.BLRandomContract.BLRandomTable;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.DeathContract;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FamilyMembersContract;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FamilyMembersContract.MemberTable;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract.FormsTable;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.Mwra_ChildrenContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UCContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UCContract.UCTable;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UsersContract;
@@ -33,20 +29,15 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.VersionAppContract.Version
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.VillageContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.VillageContract.VillageTable;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.models.BLRandom;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.models.Death;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.models.Form;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.models.MWRA_CHILD;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.models.Users;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.models.VersionApp;
 
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_BL_RANDOM;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_DEATH;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_DISTRICTS;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_FORMS;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_MWRA;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_VERSIONAPP;
 import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.SQL_CREATE_VILLAGE_TABLE;
@@ -68,10 +59,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_DISTRICTS);
         db.execSQL(SQL_CREATE_BL_RANDOM);
         db.execSQL(SQL_CREATE_VERSIONAPP);
-        db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
-        db.execSQL(SQL_CREATE_DEATH);
-        db.execSQL(SQL_CREATE_MWRA);
-        //    db.execSQL(SQL_CREATE_IMMUNIZATION);
     }
 
     @Override
@@ -192,12 +179,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(BLRandomTable.COLUMN_STRUCTURE_NO, Vc.getStructure());
                 values.put(BLRandomTable.COLUMN_FAMILY_EXT_CODE, Vc.getExtension());
                 values.put(BLRandomTable.COLUMN_HH, Vc.getHh());
-                values.put(BLRandomTable.COLUMN_EB_CODE, Vc.getEbcode());
-                values.put(BLRandomTable.COLUMN_P_CODE, Vc.getpCode());
-                values.put(BLRandomTable.COLUMN_RANDOMDT, Vc.getRandomDT());
+                values.put(BLRandomTable.COLUMN_VILLAGE_CODE, Vc.getEbcode());
+                values.put(BLRandomTable.COLUMN_CLUSTER_CODE, Vc.getpCode());
+                values.put(BLRandomTable.COLUMN_SYSDT, Vc.getSysDT());
                 values.put(BLRandomTable.COLUMN_HH_HEAD, Vc.getHhhead());
-                values.put(BLRandomTable.COLUMN_CONTACT, Vc.getContact());
-                values.put(BLRandomTable.COLUMN_HH_SELECTED_STRUCT, Vc.getSelStructure());
+                values.put(BLRandomTable.COLUMN_RANDDT, Vc.getRandDT());
+                values.put(BLRandomTable.COLUMN_HH_SELECTED_UC, Vc.getSelUC());
                 values.put(BLRandomTable.COLUMN_SNO_HH, Vc.getSno());
 
                 long row = db.insert(BLRandomTable.TABLE_NAME, null, values);
@@ -288,98 +275,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 FormsTable.TABLE_NAME,
                 FormsTable.COLUMN_NAME_NULLABLE,
-                values);
-        return newRowId;
-    }
-
-    public Long addFamilyMember(FamilyMembersContract fmc) {
-
-        // Gets the data repository in write mode
-        SQLiteDatabase db = this.getWritableDatabase();
-
-// Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(MemberTable.COLUMN_UID, fmc.getUid());
-        values.put(MemberTable.COLUMN_UUID, fmc.getUuid());
-        values.put(MemberTable.COLUMN_LUID, fmc.getLuid());
-        values.put(MemberTable.COLUMN_KISH_SELECTED, fmc.getKishSelected());
-        values.put(MemberTable.COLUMN_CLUSTERNO, fmc.getClusterno());
-        values.put(MemberTable.COLUMN_HHNO, fmc.getHhno());
-        values.put(MemberTable.COLUMN_SERIAL_NO, fmc.getSerialno());
-        values.put(MemberTable.COLUMN_NAME, fmc.getName());
-        values.put(MemberTable.COLUMN_RELATION_HH, fmc.getRelHH());
-        values.put(MemberTable.COLUMN_RELATION_HHXX, fmc.getRelHHxx());
-        values.put(MemberTable.COLUMN_AGE, fmc.getAge());
-        values.put(MemberTable.COLUMN_MOTHER_NAME, fmc.getMother_name());
-        values.put(MemberTable.COLUMN_MOTHER_SERIAL, fmc.getMother_serial());
-        values.put(MemberTable.COLUMN_GENDER, fmc.getGender());
-        values.put(MemberTable.COLUMN_MARITAL, fmc.getMarital());
-        values.put(MemberTable.COLUMN_SD, fmc.getsD());
-
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId;
-        newRowId = db.insert(
-                MemberTable.TABLE_NAME,
-                FormsTable.COLUMN_NAME_NULLABLE,
-                values);
-        return newRowId;
-    }
-
-    public Long addDeath(Death death) {
-
-        // Gets the data repository in write mode
-        SQLiteDatabase db = this.getWritableDatabase();
-
-// Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(DeathContract.DeathTable.COLUMN_UID, death.get_UID());
-        values.put(DeathContract.DeathTable.COLUMN_UUID, death.getUUID());
-        values.put(DeathContract.DeathTable.COLUMN_ELB1, death.getElb1());
-        values.put(DeathContract.DeathTable.COLUMN_ELB11, death.getElb11());
-        values.put(DeathContract.DeathTable.COLUMN_USERNAME, death.getUsername());
-        values.put(DeathContract.DeathTable.COLUMN_SYSDATE, death.getSysdate());
-        values.put(DeathContract.DeathTable.COLUMN_TYPE, death.getType());
-        values.put(DeathContract.DeathTable.COLUMN_SC, death.getsC());
-        values.put(DeathContract.DeathTable.COLUMN_SB, death.getsB());
-        values.put(DeathContract.DeathTable.COLUMN_DEVICETAGID, death.getDevicetagID());
-        values.put(DeathContract.DeathTable.COLUMN_DEVICEID, death.getDeviceID());
-        values.put(DeathContract.DeathTable.COLUMN_APPVERSION, death.getAppversion());
-
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId;
-        newRowId = db.insert(
-                DeathContract.DeathTable.TABLE_NAME,
-                DeathContract.DeathTable.COLUMN_NAME_NULLABLE,
-                values);
-        return newRowId;
-    }
-
-    public Long addMWRACHILD(MWRA_CHILD mwraChild) {
-
-        // Gets the data repository in write mode
-        SQLiteDatabase db = this.getWritableDatabase();
-
-// Create a new map of values, where column names are the keys
-        ContentValues values = new ContentValues();
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_UID, mwraChild.get_UID());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_UUID, mwraChild.getUUID());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB1, mwraChild.getElb1());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB11, mwraChild.getElb11());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_FMUID, mwraChild.getFmuid());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_USERNAME, mwraChild.getUsername());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYSDATE, mwraChild.getSysdate());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_TYPE, mwraChild.getType());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_SC, mwraChild.getsC());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_SB, mwraChild.getsB());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICETAGID, mwraChild.getDevicetagID());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICEID, mwraChild.getDeviceID());
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_APPVERSION, mwraChild.getAppversion());
-
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId;
-        newRowId = db.insert(
-                Mwra_ChildrenContract.MWRAChildTable.TABLE_NAME,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -976,7 +871,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Synced functions
-    public Collection<Form> getUnsyncedForms(String formtype) {
+    public Collection<Form> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1057,178 +952,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allForms;
     }
 
-    public Collection<Death> getUnsyncedDeaths(String deathtype) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                DeathContract.DeathTable._ID,
-                DeathContract.DeathTable.COLUMN_UID,
-                DeathContract.DeathTable.COLUMN_UUID,
-                DeathContract.DeathTable.COLUMN_ELB1,
-                DeathContract.DeathTable.COLUMN_ELB11,
-                DeathContract.DeathTable.COLUMN_USERNAME,
-                DeathContract.DeathTable.COLUMN_SYSDATE,
-                DeathContract.DeathTable.COLUMN_DEVICEID,
-                DeathContract.DeathTable.COLUMN_DEVICETAGID,
-                DeathContract.DeathTable.COLUMN_APPVERSION,
-                DeathContract.DeathTable.COLUMN_TYPE,
-                DeathContract.DeathTable.COLUMN_SC,
-                DeathContract.DeathTable.COLUMN_SB,
-        };
-
-        String whereClause;
-        String[] whereArgs;
-
-        whereClause = DeathContract.DeathTable.COLUMN_SYNCED + " is null OR " + DeathContract.DeathTable.COLUMN_SYNCED + " == ''";
-        whereArgs = null;
-
-        String groupBy = null;
-        String having = null;
-        String orderBy = DeathContract.DeathTable.COLUMN_ID + " ASC";
-
-        Collection<Death> allDeaths = new ArrayList<>();
-        try {
-            c = db.query(
-                    DeathContract.DeathTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                Log.d(TAG, "getUnsyncedDeaths: " + c.getCount());
-                Death death = new Death();
-                allDeaths.add(death.Hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allDeaths;
-    }
-
-    public Collection<MWRA_CHILD> getUnsyncedMWRA(String mwratype) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                Mwra_ChildrenContract.MWRAChildTable._ID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_UID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_UUID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB1,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB11,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_FMUID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_USERNAME,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYSDATE,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICEID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICETAGID,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_APPVERSION,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_TYPE,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_SC,
-                Mwra_ChildrenContract.MWRAChildTable.COLUMN_SB,
-        };
-
-        String whereClause;
-        String[] whereArgs;
-
-        whereClause = Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED + " is null OR " + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED + " == ''";
-        whereArgs = null;
-
-        String groupBy = null;
-        String having = null;
-        String orderBy = Mwra_ChildrenContract.MWRAChildTable.COLUMN_ID + " ASC";
-
-        Collection<MWRA_CHILD> allMWRACHILDREN = new ArrayList<>();
-        try {
-            c = db.query(
-                    Mwra_ChildrenContract.MWRAChildTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                Log.d(TAG, "getUnsyncedmwras: " + c.getCount());
-                MWRA_CHILD mwraChild = new MWRA_CHILD();
-                allMWRACHILDREN.add(mwraChild.Hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allMWRACHILDREN;
-    }
-
-    public Collection<FamilyMembersContract> getUnsyncedFamilyMembers() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                MemberTable.COLUMN_ID,
-                MemberTable.COLUMN_UID,
-                MemberTable.COLUMN_UUID,
-                MemberTable.COLUMN_LUID,
-                MemberTable.COLUMN_KISH_SELECTED,
-                MemberTable.COLUMN_CLUSTERNO,
-                MemberTable.COLUMN_HHNO,
-                MemberTable.COLUMN_SERIAL_NO,
-                MemberTable.COLUMN_NAME,
-                MemberTable.COLUMN_RELATION_HH,
-                MemberTable.COLUMN_RELATION_HHXX,
-                MemberTable.COLUMN_AGE,
-                MemberTable.COLUMN_MOTHER_NAME,
-                MemberTable.COLUMN_MOTHER_SERIAL,
-                MemberTable.COLUMN_GENDER,
-                MemberTable.COLUMN_MARITAL,
-                MemberTable.COLUMN_SD,
-        };
-        String whereClause = MemberTable.COLUMN_SYNCED + " is null";
-        String[] whereArgs = null;
-        String groupBy = null;
-        String having = null;
-
-        String orderBy =
-                FormsTable.COLUMN_ID + " ASC";
-
-        Collection<FamilyMembersContract> allFC = new ArrayList<>();
-        try {
-            c = db.query(
-                    MemberTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                FamilyMembersContract fc = new FamilyMembersContract();
-                allFC.add(fc.hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allFC;
-    }
-
 
     //Get BLRandom data
-    public BLRandom getHHFromBLRandom(String subAreaCode, String hh) {
+    public BLRandom getHHFromBLRandom(String cluster, String subcluster, String hh) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
 
@@ -1238,17 +964,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 BLRandomTable.COLUMN_STRUCTURE_NO,
                 BLRandomTable.COLUMN_FAMILY_EXT_CODE,
                 BLRandomTable.COLUMN_HH,
-                BLRandomTable.COLUMN_P_CODE,
-                BLRandomTable.COLUMN_EB_CODE,
-                BLRandomTable.COLUMN_RANDOMDT,
-                BLRandomTable.COLUMN_HH_SELECTED_STRUCT,
-                BLRandomTable.COLUMN_CONTACT,
+                BLRandomTable.COLUMN_CLUSTER_CODE,
+                BLRandomTable.COLUMN_VILLAGE_CODE,
+                BLRandomTable.COLUMN_SYSDT,
+                BLRandomTable.COLUMN_HH_SELECTED_UC,
+                BLRandomTable.COLUMN_RANDDT,
                 BLRandomTable.COLUMN_HH_HEAD,
                 BLRandomTable.COLUMN_SNO_HH
         };
 
-        String whereClause = BLRandomTable.COLUMN_P_CODE + "=? AND " + BLRandomTable.COLUMN_HH + "=?";
-        String[] whereArgs = new String[]{subAreaCode, hh};
+        String whereClause = BLRandomTable.COLUMN_CLUSTER_CODE + "=? AND " + BLRandomTable.COLUMN_VILLAGE_CODE + "=? AND " + BLRandomTable.COLUMN_HH + "=?";
+        String[] whereArgs = new String[]{cluster, subcluster, hh};
         String groupBy = null;
         String having = null;
 
@@ -1373,161 +1099,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
-    public int updatesDeathColumn(String column, String value, String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = DeathContract.DeathTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {id};
-
-        return db.update(DeathContract.DeathTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-    public int updatesMWRAColumn(String column, String value, String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = Mwra_ChildrenContract.MWRAChildTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {id};
-
-        return db.update(Mwra_ChildrenContract.MWRAChildTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-
-    //Get FamilyMembers data for info activity
-    public FamilyMembersContract getFamilyMember(String cluster, String hhno, String kishType, FamilyMembersContract mother) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                MemberTable.COLUMN_ID,
-                MemberTable.COLUMN_UID,
-                MemberTable.COLUMN_UUID,
-                MemberTable.COLUMN_LUID,
-                MemberTable.COLUMN_KISH_SELECTED,
-                MemberTable.COLUMN_CLUSTERNO,
-                MemberTable.COLUMN_HHNO,
-                MemberTable.COLUMN_SERIAL_NO,
-                MemberTable.COLUMN_NAME,
-                MemberTable.COLUMN_RELATION_HH,
-                MemberTable.COLUMN_RELATION_HHXX,
-                MemberTable.COLUMN_AGE,
-                MemberTable.COLUMN_MOTHER_NAME,
-                MemberTable.COLUMN_MOTHER_SERIAL,
-                MemberTable.COLUMN_GENDER,
-                MemberTable.COLUMN_MARITAL,
-                MemberTable.COLUMN_SD,
-
-        };
-
-        String whereClause;
-        String[] whereArgs;
-        if (mother != null) {
-            whereClause = MemberTable.COLUMN_CLUSTERNO + "=? AND " + MemberTable.COLUMN_HHNO + "=? AND "
-                    + MemberTable.COLUMN_KISH_SELECTED + "=? AND "
-                    + MemberTable.COLUMN_MOTHER_SERIAL + "=? AND " + MemberTable.COLUMN_UUID + "=? AND " + MemberTable.COLUMN_MOTHER_NAME + "=?";
-            whereArgs = new String[]{cluster, hhno, kishType, mother.getSerialno(), mother.getUuid(), mother.getName()};
-        } else {
-            whereClause = MemberTable.COLUMN_CLUSTERNO + "=? AND " + MemberTable.COLUMN_HHNO + "=? AND "
-                    + MemberTable.COLUMN_KISH_SELECTED + "=? ";
-            whereArgs = new String[]{cluster, hhno, kishType};
-        }
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = MemberTable.COLUMN_ID + " ASC";
-
-        FamilyMembersContract allBL = null;
-        try {
-            c = db.query(
-                    MemberTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                allBL = new FamilyMembersContract().hydrate(c);
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allBL;
-    }
-
-    public ArrayList<FamilyMembersContract> getFamilyMemberList(String cluster, String hhno, FamilyMembersContract mother) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {
-                MemberTable.COLUMN_ID,
-                MemberTable.COLUMN_UID,
-                MemberTable.COLUMN_LUID,
-                MemberTable.COLUMN_UUID,
-                MemberTable.COLUMN_KISH_SELECTED,
-                MemberTable.COLUMN_CLUSTERNO,
-                MemberTable.COLUMN_HHNO,
-                MemberTable.COLUMN_SERIAL_NO,
-                MemberTable.COLUMN_NAME,
-                MemberTable.COLUMN_RELATION_HH,
-                MemberTable.COLUMN_RELATION_HHXX,
-                MemberTable.COLUMN_AGE,
-                MemberTable.COLUMN_MOTHER_NAME,
-                MemberTable.COLUMN_MOTHER_SERIAL,
-                MemberTable.COLUMN_GENDER,
-                MemberTable.COLUMN_MARITAL,
-                MemberTable.COLUMN_SD,
-
-        };
-
-        String whereClause = MemberTable.COLUMN_CLUSTERNO + "=? AND " + MemberTable.COLUMN_HHNO + "=? AND "
-                + MemberTable.COLUMN_MOTHER_SERIAL + "=? AND " + MemberTable.COLUMN_UUID + "=? AND " + MemberTable.COLUMN_MOTHER_NAME + "=? AND (" + MemberTable.COLUMN_AGE + "  IN (5,6,7,8,9))";
-        String[] whereArgs = {cluster, hhno, mother.getSerialno(), mother.getUuid(), mother.getName()};
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = MemberTable.COLUMN_ID + " ASC";
-
-        ArrayList<FamilyMembersContract> allBL = new ArrayList<>();
-        try {
-            c = db.query(
-                    MemberTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                allBL.add(new FamilyMembersContract().hydrate(c));
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-        return allBL;
-    }
-
 
     // ANDROID DATABASE MANAGER
     public ArrayList<Cursor> getData(String Query) {
@@ -1576,42 +1147,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //Generic update FamilyMemberColumn
-    public int updatesFamilyMemberColumn(String column, String value, String valueID) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = MemberTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(valueID)};
-
-        return db.update(MemberTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-    public int updatesFamilyMemberColumn(String column, String value, FamilyMembersContract fmc) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = MemberTable.COLUMN_CLUSTERNO + " =? AND "
-                + MemberTable.COLUMN_HHNO + " =? AND "
-                + MemberTable.COLUMN_SERIAL_NO + " =? AND "
-                + MemberTable.COLUMN_UID + " =? AND "
-                + MemberTable.COLUMN_UUID + " =?";
-        String[] selectionArgs = {fmc.getClusterno(), fmc.getHhno(), fmc.getSerialno(), fmc.getUid(), fmc.getUuid()};
-
-        return db.update(MemberTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-
     //Generic Un-Synced Forms
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1627,63 +1162,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 FormsTable.TABLE_NAME,
-                values,
-                where,
-                whereArgs);
-    }
-
-    public void updateSyncedDeath(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(DeathContract.DeathTable.COLUMN_SYNCED, true);
-        values.put(DeathContract.DeathTable.COLUMN_SYNCED_DATE, new Date().toString());
-
-// Which row to update, based on the title
-        String where = DeathContract.DeathTable.COLUMN_ID + " = ?";
-        String[] whereArgs = {id};
-
-        int count = db.update(
-                DeathContract.DeathTable.TABLE_NAME,
-                values,
-                where,
-                whereArgs);
-    }
-
-    public void updateSyncedMWRA(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED, true);
-        values.put(Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED_DATE, new Date().toString());
-
-// Which row to update, based on the title
-        String where = Mwra_ChildrenContract.MWRAChildTable.COLUMN_ID + " = ?";
-        String[] whereArgs = {id};
-
-        int count = db.update(
-                Mwra_ChildrenContract.MWRAChildTable.TABLE_NAME,
-                values,
-                where,
-                whereArgs);
-    }
-
-    public void updateSyncedFamilyMemForms(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-// New value for one column
-        ContentValues values = new ContentValues();
-        values.put(MemberTable.COLUMN_SYNCED, true);
-        values.put(MemberTable.COLUMN_SYNCED_DATE, new Date().toString());
-
-// Which row to update, based on the title
-        String where = MemberTable._ID + " = ?";
-        String[] whereArgs = {id};
-
-        int count = db.update(
-                MemberTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

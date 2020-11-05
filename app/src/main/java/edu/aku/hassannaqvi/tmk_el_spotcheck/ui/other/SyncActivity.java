@@ -33,7 +33,6 @@ import java.util.Locale;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.R;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.adapter.SyncListAdapter;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.core.DatabaseHelper;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.core.MainApp;
@@ -131,26 +130,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             new SyncDevice(this, false).execute();
 //  *******************************************************Forms*********************************
-            String[] syncValues = new String[]{CONSTANTS.FORM_MP, CONSTANTS.FORM_MF};
-            for (int i = 0; i < syncValues.length; i++) {
-                Toast.makeText(getApplicationContext(), String.format("Syncing Forms %s", syncValues[i]), Toast.LENGTH_SHORT).show();
-                if (uploadlistActivityCreated) {
-                    uploadmodel = new SyncModel();
-                    uploadmodel.setstatusID(0);
-                    uploadlist.add(uploadmodel);
-                }
-                new SyncAllData(
-                        this,
-                        String.format("Forms - %s", syncValues[i]),
-                        "updateSyncedForms",
-                        Form.class,
-                        MainApp._HOST_URL + MainApp._SERVER_URL,
-                        FormsContract.FormsTable.TABLE_NAME + syncValues[i],
-                        db.getUnsyncedForms(syncValues[i]), i, syncListAdapter, uploadlist
-                ).execute();
-            }
-
-            Toast.makeText(getApplicationContext(), "Syncing FamilyMembers", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -158,13 +138,14 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
             new SyncAllData(
                     this,
-                    "FamilyMembers",
-                    "updateSyncedFamilyMemForms",
-                    FamilyMembersContract.class,
+                    "Forms",
+                    "updateSyncedForms",
+                    Form.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    FamilyMembersContract.MemberTable.TABLE_NAME,
-                    db.getUnsyncedFamilyMembers(), 2, syncListAdapter, uploadlist
+                    FormsContract.FormsTable.TABLE_NAME + "SP",
+                    db.getUnsyncedForms(), 0, syncListAdapter, uploadlist
             ).execute();
+
 
             uploadlistActivityCreated = false;
 

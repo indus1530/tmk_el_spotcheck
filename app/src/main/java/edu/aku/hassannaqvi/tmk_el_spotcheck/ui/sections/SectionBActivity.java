@@ -9,10 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +53,7 @@ public class SectionBActivity extends AppCompatActivity {
         bi.setCallback(this);
         setupSkip();
         VillageContract village = (VillageContract) getIntent().getSerializableExtra(VILLAGES_DATA);
-        bi.elb1.setText(village.getCluster_code());
+        bi.elb1.setText(village.getArea_code());
         bi.elb6.setText(getTalukaName(Integer.parseInt(MainApp.SELECTED_UC.getTaluka_code())));
         bi.elb7.setText(MainApp.SELECTED_UC.getUc_name());
         bi.elb8.setText(village.getVillage_name());
@@ -109,7 +111,7 @@ public class SectionBActivity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         form = new Form();
-        form.setSysdate(new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault()).format(new Date().getTime()));
+        form.setSysdate(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date().getTime()));
         form.setUsername(MainApp.userName);
         form.setDeviceID(MainApp.appInfo.getDeviceID());
         form.setDevicetagID(MainApp.appInfo.getTagName());
@@ -140,10 +142,17 @@ public class SectionBActivity extends AppCompatActivity {
                 : "-1");
 
         form.setElb11(bi.elb11.getText().toString());
-
         form.setElb12(bi.elb12.getText().toString());
-
         MainApp.setGPS(this);
+
+        JSONObject json = new JSONObject();
+        json.put("hhdt", bl.getSysDT());
+        json.put("_luid", bl.getLUID());
+        json.put("hh_srno", bl.getSno());
+        json.put("hhhead", bl.getHhhead());
+        json.put("rndt", bl.getRandDT());
+
+        form.setsC(json.toString());
     }
 
 
@@ -157,7 +166,8 @@ public class SectionBActivity extends AppCompatActivity {
     }
 
     public void CheckHH(View v) {
-        resetVariables(View.VISIBLE);
+        if (!formValidation()) return;
+        gettingBLData();
     }
 
     private void resetVariables(int visibility) {
@@ -173,13 +183,13 @@ public class SectionBActivity extends AppCompatActivity {
     //Reactive Streams
     private Observable<BLRandom> getBLRandom() {
         return Observable.create(emitter -> {
-            emitter.onNext(appInfo.getDbHelper().getHHFromBLRandom(bi.elb8a.getText().toString(), bi.elb11.getText().toString()));
+            emitter.onNext(appInfo.getDbHelper().getHHFromBLRandom(bi.elb1.getText().toString(), bi.elb8a.getText().toString(), bi.elb11.getText().toString()));
             emitter.onComplete();
         });
     }
 
     //Getting data from db
-    public void gettingAreaData() {
+    private void gettingBLData() {
         getBLRandom()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -194,11 +204,14 @@ public class SectionBActivity extends AppCompatActivity {
                     @Override
                     public void onNext(@NonNull BLRandom blRandom) {
                         bl = blRandom;
+                        bi.headname.setText(String.format("HH-Head: %s", bl.getHhhead().toUpperCase()));
+                        resetVariables(View.VISIBLE);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
                         disposable.dispose();
+                        Snackbar.make(findViewById(android.R.id.content), "Sorry no HH found", Snackbar.LENGTH_LONG).show();
                     }
 
                     @Override

@@ -1,10 +1,7 @@
 package edu.aku.hassannaqvi.tmk_el_spotcheck.utils;
 
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.BLRandomContract.BLRandomTable;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.DeathContract;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.FormsContract.FormsTable;
-import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.Mwra_ChildrenContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UCContract.UCTable;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UsersContract.UsersTable;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.VersionAppContract.VersionAppTable;
@@ -14,7 +11,7 @@ public final class CreateTable {
 
     public static final String DATABASE_NAME = "TmkElSpotcheck.db";
     public static final String DB_NAME = "TmkElSpotcheck_copy.db";
-    public static final String PROJECT_NAME = "TmkElSpotcheck";
+    public static final String PROJECT_NAME = "uenTMKel2020/spotcheck";
     public static final int DATABASE_VERSION = 1;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
@@ -94,74 +91,16 @@ public final class CreateTable {
 
     public static final String SQL_CREATE_BL_RANDOM = "CREATE TABLE " + BLRandomTable.TABLE_NAME + "("
             + BLRandomTable.COLUMN_ID + " TEXT,"
-            + BLRandomTable.COLUMN_P_CODE + " TEXT,"
-            + BLRandomTable.COLUMN_EB_CODE + " TEXT,"
+            + BLRandomTable.COLUMN_CLUSTER_CODE + " TEXT,"
+            + BLRandomTable.COLUMN_VILLAGE_CODE + " TEXT,"
             + BLRandomTable.COLUMN_LUID + " TEXT,"
             + BLRandomTable.COLUMN_HH + " TEXT,"
             + BLRandomTable.COLUMN_STRUCTURE_NO + " TEXT,"
             + BLRandomTable.COLUMN_FAMILY_EXT_CODE + " TEXT,"
             + BLRandomTable.COLUMN_HH_HEAD + " TEXT,"
-            + BLRandomTable.COLUMN_CONTACT + " TEXT,"
-            + BLRandomTable.COLUMN_HH_SELECTED_STRUCT + " TEXT,"
-            + BLRandomTable.COLUMN_RANDOMDT + " TEXT,"
+            + BLRandomTable.COLUMN_RANDDT + " TEXT,"
+            + BLRandomTable.COLUMN_HH_SELECTED_UC + " TEXT,"
+            + BLRandomTable.COLUMN_SYSDT + " TEXT,"
             + BLRandomTable.COLUMN_SNO_HH + " TEXT );";
-
-
-    public static final String SQL_CREATE_FAMILY_MEMBERS = "CREATE TABLE " + FamilyMembersContract.MemberTable.TABLE_NAME + "("
-            + FamilyMembersContract.MemberTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            FamilyMembersContract.MemberTable.COLUMN_UID + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_UUID + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_LUID + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_KISH_SELECTED + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_CLUSTERNO + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_HHNO + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_SERIAL_NO + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_NAME + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_RELATION_HH + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_RELATION_HHXX + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_AGE + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_MOTHER_NAME + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_MOTHER_SERIAL + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_GENDER + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_MARITAL + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_SD + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_SYNCED + " TEXT," +
-            FamilyMembersContract.MemberTable.COLUMN_SYNCED_DATE + " TEXT"
-            + ");";
-
-    public static final String SQL_CREATE_DEATH = "CREATE TABLE " + DeathContract.DeathTable.TABLE_NAME + "("
-            + DeathContract.DeathTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + DeathContract.DeathTable.COLUMN_UID + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_UUID + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_ELB1 + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_ELB11 + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_USERNAME + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_SYSDATE + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_TYPE + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_SC + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_SB + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_DEVICEID + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_DEVICETAGID + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_SYNCED + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_SYNCED_DATE + " TEXT,"
-            + DeathContract.DeathTable.COLUMN_APPVERSION + " TEXT );";
-
-    public static final String SQL_CREATE_MWRA = "CREATE TABLE " + Mwra_ChildrenContract.MWRAChildTable.TABLE_NAME + "("
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_UID + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_UUID + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB1 + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_ELB11 + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_FMUID + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_USERNAME + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYSDATE + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_TYPE + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SC + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SB + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICEID + " TEXT,"
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_DEVICETAGID + " TEXT, "
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED + " TEXT, "
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_SYNCED_DATE + " TEXT, "
-            + Mwra_ChildrenContract.MWRAChildTable.COLUMN_APPVERSION + " TEXT );";
 
 }

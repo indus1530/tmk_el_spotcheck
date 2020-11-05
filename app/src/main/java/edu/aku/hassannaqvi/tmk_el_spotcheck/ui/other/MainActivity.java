@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
 
         //bi.txtinstalldate.setText(appInfo.getAppInfo());
         Collection<Form> todaysForms = appInfo.getDbHelper().getTodayForms(sysdateToday);
-        Collection<Form> unsyncedForms = appInfo.getDbHelper().getUnsyncedForms(null);
+        Collection<Form> unsyncedForms = appInfo.getDbHelper().getUnsyncedForms();
         Collection<Form> unclosedForms = appInfo.getDbHelper().getUnclosedForms();
 
         StringBuilder rSumText = new StringBuilder()
@@ -313,40 +313,7 @@ public class MainActivity extends AppCompatActivity implements WarningActivityIn
         switch (v.getId()) {
             case R.id.formA:
                 oF = new Intent(this, SectionBActivity.class).putExtra(VILLAGES_DATA, village);
-                break;/*
-            case R.id.formC:
-                oF = new Intent(this, SectionCActivity.class);
                 break;
-            case R.id.formD:
-                oF = new Intent(this, SectionDActivity.class);
-                break;
-            case R.id.formE:
-                oF = new Intent(this, SectionE01Activity.class);
-                break;
-            case R.id.formF:
-                oF = new Intent(this, SectionF01Activity.class);
-                break;
-            case R.id.formG:
-                oF = new Intent(this, SectionG01Activity.class);
-                break;
-            case R.id.formH:
-                oF = new Intent(this, SectionH01Activity.class);
-                break;
-            case R.id.formI:
-                oF = new Intent(this, SectionI01Activity.class);
-                break;
-            case R.id.formJ:
-                oF = new Intent(this, SectionJ01Activity.class);
-                break;
-            case R.id.formK:
-                oF = new Intent(this, SectionKActivity.class);
-                break;
-            case R.id.formL:
-                oF = new Intent(this, SectionLActivity.class);
-                break;
-            case R.id.formN:
-                oF = new Intent(this, SectionNActivity.class);
-                break;*/
             case R.id.databaseBtn:
                 oF = new Intent(this, AndroidDatabaseManager.class);
                 break;
