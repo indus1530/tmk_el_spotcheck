@@ -1,5 +1,17 @@
 package edu.aku.hassannaqvi.tmk_el_spotcheck.ui.other;
 
+import static java.lang.Thread.sleep;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MINIMUM_DISTANCE_CHANGE_FOR_UPDATES;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MINIMUM_TIME_BETWEEN_UPDATES;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_CONTACTS;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.TWO_MINUTES;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AppUtilsKt.getPermissionsList;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DATABASE_NAME;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DB_NAME;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.PROJECT_NAME;
+import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.SplashRepositoryKt.populatingSpinners;
+
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -59,18 +71,6 @@ import edu.aku.hassannaqvi.tmk_el_spotcheck.databinding.ActivityLoginBinding;
 import kotlin.Unit;
 import kotlin.coroutines.CoroutineContext;
 
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MINIMUM_DISTANCE_CHANGE_FOR_UPDATES;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MINIMUM_TIME_BETWEEN_UPDATES;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_CONTACTS;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.CONSTANTS.TWO_MINUTES;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.AppUtilsKt.getPermissionsList;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DATABASE_NAME;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.DB_NAME;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.CreateTable.PROJECT_NAME;
-import static edu.aku.hassannaqvi.tmk_el_spotcheck.utils.SplashRepositoryKt.populatingSpinners;
-import static java.lang.Thread.sleep;
-
 public class LoginActivity extends Activity {
 
     protected static LocationManager locationManager;
@@ -103,7 +103,7 @@ public class LoginActivity extends Activity {
         }
 
         // populateAutoComplete();
-        gettingDeviceIMEI();
+//        gettingDeviceIMEI();
         Target viewTarget = new ViewTarget(bi.syncData.getId(), this);
 
         new ShowcaseView.Builder(this)
@@ -407,7 +407,7 @@ public class LoginActivity extends Activity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        MainApp.IMEI = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
+//        MainApp.IMEI = ((TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
 
     }
 
