@@ -117,6 +117,9 @@ public class LoginActivity extends Activity {
 //        DB backup
         dbBackup();
         setListeners();
+
+        // By default language selection
+        MainApp.setLocale(this, "sd");
     }
 
     private void gettingDeviceIMEI() {

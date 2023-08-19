@@ -9,18 +9,24 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.format.DateFormat;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 
 import com.jakewharton.threetenabp.AndroidThreeTen;
+
+import java.util.Locale;
 
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UCContract;
 import edu.aku.hassannaqvi.tmk_el_spotcheck.contracts.UsersContract;
@@ -306,6 +312,35 @@ public class MainApp extends Application {
         public void onProviderEnabled(String s) {
 
         }
+    }
+
+    // Change Locale/Language
+    public static void setLocale(Activity activity, String localeKey) {
+        if (localeKey.equals(getCurrentLocale(activity)))
+            return;
+//        SharedPrefs.write(SharedPrefs.LOCALE, localeKey);
+        Resources resources = activity.getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        Locale locale = new Locale(localeKey, "PK");
+        Locale.setDefault(locale);
+        configuration.setLocale(locale);
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N) {
+//            activity.createConfigurationContext(configuration);
+//        } else {
+        resources.updateConfiguration(configuration, displayMetrics);
+//        }
+    }
+
+    // Get Current Locale
+    private static String getCurrentLocale(Context context) {
+        Locale locale;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            locale = context.getResources().getConfiguration().getLocales().get(0);
+        } else {
+            locale = context.getResources().getConfiguration().locale;
+        }
+        return locale.getLanguage();
     }
 
 }
